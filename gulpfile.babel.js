@@ -1,3 +1,9 @@
+/*
+ * TODO: 
+ * 		Add sass config, gulp-if for production vs development modes, header comments for all files?
+ * 		Change html files to have separate dir in src
+ */
+
 // Imports
 import gulp    from 'gulp'
 import connect from 'gulp-connect'
