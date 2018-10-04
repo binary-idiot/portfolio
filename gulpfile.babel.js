@@ -1,6 +1,7 @@
 // Imports
 import gulp    from 'gulp'
 import connect from 'gulp-connect'
+import sass    from 'gulp-sass'
 import del     from 'del'
 
 // Config
@@ -28,10 +29,24 @@ const paths = {
 	const cleanMarkup = () => {return del([`${paths.dest.markup}*.html`])}
 
 	const markup = gulp.series(cleanMarkup, compileMarkup);
-	markup.description = 'Clean and Compile html';
+	markup.description = 'Clean and Compile markup';
 
 
-const compile = gulp.parallel(markup);
+	// Styles
+	const compileStyles = () => {
+		return gulp.src(`${paths.src.styles}*`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest(paths.dest.styles))
+			.pipe(connect.reload())
+	}
+
+	const cleanStyles = () => {return del([`${paths.dest.styles}*`])}
+
+	const styles = gulp.series(cleanStyles, compileStyles);
+	styles.description = 'Clean and compile styles';
+
+
+const compile = gulp.parallel(markup, styles);
 compile.description = 'Compile all sources';
 
 
@@ -41,7 +56,12 @@ const watchMarkup = () => {
 		.on('all', gulp.series(markup));
 }
 
-const watch = gulp.parallel(watchMarkup);
+const watchStyles = () => {
+	return gulp.watch(`${paths.src.styles}*`)
+		.on('all', gulp.series(styles));
+}
+
+const watch = gulp.parallel(watchMarkup, watchStyles);
 watch.description = 'Watch for changes to sources';
 
 
