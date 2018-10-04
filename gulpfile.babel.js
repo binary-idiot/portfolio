@@ -1,17 +1,34 @@
 // Imports
 import gulp    from 'gulp'
 import connect from 'gulp-connect'
+import del     from 'del'
+
+// Config
+const paths = {
+	src: {
+		markup: 'src/',
+		scripts: 'src/scripts/',
+		styles: 'src/styles/'
+	},
+	dest: {
+		markup: 'docs/',
+		scripts: 'docs/scripts/',
+		styles: 'docs/styles/'
+	}
+}
 
 // Compile source
 	// Markup 
 	const compileMarkup = () => {
-		return gulp.src('src/*.html')
-			.pipe(gulp.dest('docs/'))
+		return gulp.src(`${paths.src.markup}*.html`)
+			.pipe(gulp.dest(paths.dest.markup))
 			.pipe(connect.reload());
 	}
 
-	const markup = gulp.series(compileMarkup);
-	markup.description = 'Compile html';
+	const cleanMarkup = () => {return del([`${paths.dest.markup}*.html`])}
+
+	const markup = gulp.series(cleanMarkup, compileMarkup);
+	markup.description = 'Clean and Compile html';
 
 
 const compile = gulp.parallel(markup);
@@ -20,7 +37,7 @@ compile.description = 'Compile all sources';
 
 // Watch for changes to sources
 const watchMarkup = () => {
-	return gulp.watch('src/*.html')
+	return gulp.watch(`${paths.src.markup}*.html`)
 		.on('all', gulp.series(markup));
 }
 
