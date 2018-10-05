@@ -1,7 +1,6 @@
 /*
  * TODO: 
- * 		Add sass config, gulp-if for production vs development modes, header comments for all files?
- * 		Change html files to have separate dir in src
+ * 		header comments for all files?
  */
 
 // Imports
@@ -9,6 +8,7 @@ import gulp     from 'gulp'
 import connect  from 'gulp-connect'
 import sass     from 'gulp-sass'
 import gulpif   from 'gulp-if'
+import rename   from 'gulp-rename'
 
 import del      from 'del'
 import minimist from 'minimist'
@@ -19,12 +19,12 @@ const args = minimist(process.argv.slice(2));
 
 const paths = {
 	src: {
-		markup: 'src/',
+		pages: 'src/pages/',
 		scripts: 'src/scripts/',
 		styles: 'src/styles/'
 	},
 	dest: {
-		markup: 'docs/',
+		pages: 'docs/',
 		scripts: 'docs/scripts/',
 		styles: 'docs/styles/'
 	}
@@ -40,17 +40,22 @@ if(args.prod){
 
 
 // Compile source
-	// Markup 
-	const compileMarkup = () => {
-		return gulp.src(`${paths.src.markup}*.html`)
-			.pipe(gulp.dest(paths.dest.markup))
+	// Pages 
+	const compilePages = () => {
+		return gulp.src(`${paths.src.pages}*`)
+			.pipe(rename(path => {
+				path.dirname = (path.basename == 'index')? ''  : path.basename;
+				path.basename = 'index';
+				path.extname = '.html';
+			}))
+			.pipe(gulp.dest(paths.dest.pages))
 			.pipe(connect.reload());
 	}
 
-	const cleanMarkup = () => {return del([`${paths.dest.markup}*.html`])}
+	const cleanPages = () => {return del([`${paths.dest.pages}**`, `!${paths.dest.pages.slice(0,-1)}`, `!${paths.dest.pages}CNAME`,`!${paths.dest.scripts}**`, `!${paths.dest.styles}**`])}
 
-	const markup = gulp.series(cleanMarkup, compileMarkup);
-	markup.description = 'Clean and Compile markup';
+	const pages = gulp.series(cleanPages, compilePages);
+	pages.description = 'Clean and Compile pages';
 
 
 	// Styles
@@ -61,20 +66,20 @@ if(args.prod){
 			.pipe(connect.reload())
 	}
 
-	const cleanStyles = () => {return del([`${paths.dest.styles}*`])}
+	const cleanStyles = () => {return del([`${paths.dest.styles}`])}
 
 	const styles = gulp.series(cleanStyles, compileStyles);
 	styles.description = 'Clean and compile styles';
 
 
-const compile = gulp.parallel(markup, styles);
+const compile = gulp.parallel(pages, styles);
 compile.description = 'Compile all sources';
 
 
 // Watch for changes to sources
-const watchMarkup = () => {
-	return gulp.watch(`${paths.src.markup}*.html`)
-		.on('all', gulp.series(markup));
+const watchPages = () => {
+	return gulp.watch(`${paths.src.pages}*`)
+		.on('all', gulp.series(pages));
 }
 
 const watchStyles = () => {
@@ -82,7 +87,7 @@ const watchStyles = () => {
 		.on('all', gulp.series(styles));
 }
 
-const watch = gulp.parallel(watchMarkup, watchStyles);
+const watch = gulp.parallel(watchPages, watchStyles);
 watch.description = 'Watch for changes to sources';
 
 
@@ -101,7 +106,7 @@ const defaultTasks = gulp.parallel(serve, watch);
 // Exports
 export {
 	compile,
-	markup,
+	pages,
 	watch,
 	serve,
 }
