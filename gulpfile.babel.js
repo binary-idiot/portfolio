@@ -5,12 +5,18 @@
  */
 
 // Imports
-import gulp    from 'gulp'
-import connect from 'gulp-connect'
-import sass    from 'gulp-sass'
-import del     from 'del'
+import gulp     from 'gulp'
+import connect  from 'gulp-connect'
+import sass     from 'gulp-sass'
+import gulpif   from 'gulp-if'
+
+import del      from 'del'
+import minimist from 'minimist'
 
 // Config
+
+const args = minimist(process.argv.slice(2));
+
 const paths = {
 	src: {
 		markup: 'src/',
@@ -23,6 +29,15 @@ const paths = {
 		styles: 'docs/styles/'
 	}
 }
+
+let sassConfig;
+
+if(args.prod){
+	sassConfig = {outputStyle: 'compressed'};
+}else{
+	sassConfig = {};
+}
+
 
 // Compile source
 	// Markup 
@@ -41,7 +56,7 @@ const paths = {
 	// Styles
 	const compileStyles = () => {
 		return gulp.src(`${paths.src.styles}*`)
-			.pipe(sass().on('error', sass.logError))
+			.pipe(sass(sassConfig).on('error', sass.logError))
 			.pipe(gulp.dest(paths.dest.styles))
 			.pipe(connect.reload())
 	}
