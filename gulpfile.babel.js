@@ -4,14 +4,15 @@
  */
 
 // Imports
-import gulp     from 'gulp'
-import connect  from 'gulp-connect'
-import sass     from 'gulp-sass'
-import gulpif   from 'gulp-if'
-import rename   from 'gulp-rename'
+import gulp       from 'gulp'
+import connect    from 'gulp-connect'
+import sass       from 'gulp-sass'
+import gulpif     from 'gulp-if'
+import rename     from 'gulp-rename'
+import sourcemaps from 'gulp-sourcemaps'
 
-import del      from 'del'
-import minimist from 'minimist'
+import del        from 'del'
+import minimist   from 'minimist'
 
 // Config
 
@@ -26,7 +27,8 @@ const paths = {
 	dest: {
 		pages: 'docs/',
 		scripts: 'docs/scripts/',
-		styles: 'docs/styles/'
+		styles: 'docs/styles/',
+		sourcemaps: '../maps'
 	}
 }
 
@@ -61,7 +63,9 @@ if(args.prod){
 	// Styles
 	const compileStyles = () => {
 		return gulp.src(`${paths.src.styles}*`)
+			.pipe(sourcemaps.init())
 			.pipe(sass(sassConfig).on('error', sass.logError))
+			.pipe(sourcemaps.write(paths.dest.sourcemaps))
 			.pipe(gulp.dest(paths.dest.styles))
 			.pipe(connect.reload())
 	}
