@@ -1,13 +1,26 @@
 * {
   font-family: Verdana, Helvetica, sans-serif; }
 
+img {
+  max-width: 100%; }
+
 small {
   color: #249F9F; }
 
 body {
-  background-color: #fff; }
+  background-color: #fff;
+  margin: 0;
+  width: 100%; }
 
 h1 {
   color: #1B71D2; }
+
+header img {
+  height: 50vh;
+  object-fit: cover;
+  object-position: 25% 0; }
+  @media (min-width: 670px) {
+    header img {
+      height: 100vh; } }
 
 /*# sourceMappingURL=../maps/style.css.map */

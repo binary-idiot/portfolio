@@ -2,12 +2,18 @@
 	font-family: Verdana, Helvetica, sans-serif;
 }
 
+img{
+	max-width: 100%;
+}
+
 small{
 	color: $color-supplement-2;
 }
 
 body{
 	background-color: #fff;
+	margin: 0;
+	width: 100%;
 }
 
 h1{

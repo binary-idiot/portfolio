@@ -27,18 +27,16 @@ const paths = config.paths
 
 const sizeConfig = {showFiles: true}; 
 
+const resizeConfig = config.resize.rules;
+const resizeOptions = config.resize.options;
+
 let sassConfig;
-let resizeConfig;
-let resizeOptions;
+
 
 if(args.prod){
 	sassConfig = config.sassConfig.prod;
-	resizeConfig = config.resize.prod.config;
-	resizeOptions = config.resize.prod.options;
 }else{
 	sassConfig = config.sassConfig.dev;
-	resizeConfig = config.resize.dev.config;
-	resizeOptions = config.resize.dev.options;
 }
 
 

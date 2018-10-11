@@ -23,28 +23,41 @@
 	},
 
 	"resize": {
-		"prod": {
-			
-			"config": {
-				"*.jpg": {
-					"width": 1000,
-
-					"rename": {
-						"suffix": "-large"
-					}
+		"rules": {
+			"jonah-with-birds.png": [{
+				"width": 500,
+				"rename": {
+					"suffix": "-small",
+					"extname": ".jpg"
 				}
 			},
-
-			"options": {}
+			{
+				"width": 1000,
+				"rename": {
+					"suffix": "-medium",
+					"extname": ".jpg"
+				}
+			},
+			{
+				"width": 2000,
+				"rename": {
+					"suffix": "-large",
+					"extname": ".jpg"
+				} 
+			}, 
+			{
+				"width": 3000,
+				"rename": {
+					"suffix": "-xlarge",
+					"extname": ".jpg"
+				}
+			}]
 		},
 
-		"dev": {
-			"config": {},
-
-			"options": {
-				"errorOnUnusedImage": false,
-				"passThroughUnused": true
-			}
+		"options": {
+			"withoutEnlargement": true,
+			"errorOnUnusedImage": false,
+			"passThroughUnused": true
 		}
 	}
 }

@@ -1,0 +1,11 @@
+header{
+	img{
+		height: 50vh;
+		object-fit: cover;
+		object-position: 25% 0;
+
+		@media (min-width: 670px) {
+			height: 100vh;
+		}
+	}
+}
