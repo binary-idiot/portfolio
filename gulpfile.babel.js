@@ -25,7 +25,7 @@ const args = minimist(process.argv.slice(2));
 
 const paths = config.paths
 
-const sizeConfig = config.size; 
+const sizeConfig = config.sizes; 
 
 const resizeConfig = config.resize.rules;
 const resizeOptions = config.resize.options;
