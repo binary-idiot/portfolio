@@ -1,0 +1,50 @@
+{
+	"paths": {
+		"src": {
+			"pages": "src/pages/",
+			"scripts": "src/scripts/",
+			"styles": "src/styles/",
+			"images": "src/images/"
+		},
+		"dest": {
+			"pages": "docs/",
+			"scripts": "docs/scripts/",
+			"styles": "docs/styles/",
+			"images": "docs/images/",
+			"sourcemaps": "../maps"
+		}
+	},
+
+	"sassConfig": {
+		"prod": {
+			"outputStyle": "compressed"
+		},
+		"dev": {}
+	},
+
+	"resize": {
+		"prod": {
+			
+			"config": {
+				"*.jpg": {
+					"width": 1000,
+
+					"rename": {
+						"suffix": "-large"
+					}
+				}
+			},
+
+			"options": {}
+		},
+
+		"dev": {
+			"config": {},
+
+			"options": {
+				"errorOnUnusedImage": false,
+				"passThroughUnused": true
+			}
+		}
+	}
+}

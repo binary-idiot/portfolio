@@ -15,46 +15,30 @@ import size       from 'gulp-size'
 
 import del        from 'del'
 import minimist   from 'minimist'
+import fs         from 'fs'
 
 // Config
 
+const config = JSON.parse(fs.readFileSync('config.json'));
+
 const args = minimist(process.argv.slice(2));
 
-const paths = {
-	src: {
-		pages: 'src/pages/',
-		scripts: 'src/scripts/',
-		styles: 'src/styles/',
-		images: 'src/images/'
-	},
-	dest: {
-		pages: 'docs/',
-		scripts: 'docs/scripts/',
-		styles: 'docs/styles/',
-		images: 'docs/images/',
-		sourcemaps: '../maps'
-	}
-}
+const paths = config.paths
 
 const sizeConfig = {showFiles: true}; 
 
-let sassConfig = {};
-let resizeConfig = {};
-let resizeOptions = {};
+let sassConfig;
+let resizeConfig;
+let resizeOptions;
 
 if(args.prod){
-	sassConfig = {outputStyle: 'compressed'};
-	resizeConfig = {
-		'*.jpg':{
-				width: 1000,
-				rename: {suffix: '-large'}
-		}
-	}
+	sassConfig = config.sassConfig.prod;
+	resizeConfig = config.resize.prod.config;
+	resizeOptions = config.resize.prod.options;
 }else{
-	resizeOptions = {
-		errorOnUnusedImage: false,
-		passThroughUnused: true
-	}
+	sassConfig = config.sassConfig.dev;
+	resizeConfig = config.resize.dev.config;
+	resizeOptions = config.resize.dev.options;
 }
 
 
