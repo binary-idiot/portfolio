@@ -1,4 +1,13 @@
 * {
-  background-color: blue; }
+  font-family: Verdana, Helvetica, sans-serif; }
+
+small {
+  color: #249F9F; }
+
+body {
+  background-color: #fff; }
+
+h1 {
+  color: #1B71D2; }
 
 /*# sourceMappingURL=../maps/style.css.map */
