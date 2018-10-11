@@ -15,11 +15,15 @@
 		}
 	},
 
-	"sassConfig": {
+	"sass": {
 		"prod": {
 			"outputStyle": "compressed"
 		},
 		"dev": {}
+	},
+
+	"sizes": {
+		"showFiles": true
 	},
 
 	"resize": {

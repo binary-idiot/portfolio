@@ -25,7 +25,7 @@ const args = minimist(process.argv.slice(2));
 
 const paths = config.paths
 
-const sizeConfig = {showFiles: true}; 
+const sizeConfig = config.size; 
 
 const resizeConfig = config.resize.rules;
 const resizeOptions = config.resize.options;
@@ -34,9 +34,9 @@ let sassConfig;
 
 
 if(args.prod){
-	sassConfig = config.sassConfig.prod;
+	sassConfig = config.sass.prod;
 }else{
-	sassConfig = config.sassConfig.dev;
+	sassConfig = config.sass.dev;
 }
 
 
