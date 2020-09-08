@@ -18,10 +18,12 @@
     "gulp-if": "^2.0.2",
     "gulp-rename": "^1.4.0",
     "gulp-responsive": "^2.11.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.1.0",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
-    "minimist": "^1.2.0"
+    "gulp-wait": "0.0.2",
+    "minimist": "^1.2.5",
+    "node-sass": "^4.14.1"
   },
   "dependencies": {},
   "babel": {

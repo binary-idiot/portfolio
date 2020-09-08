@@ -13,14 +13,21 @@ body {
   width: 100%; }
 
 h1 {
-  color: #1B71D2; }
+  color: #D2291B; }
 
-header img {
-  height: 50vh;
-  object-fit: cover;
-  object-position: 25% 0; }
-  @media (min-width: 670px) {
-    header img {
-      height: 100vh; } }
+header {
+  background-color: #1B71D2;
+  width: 100%; }
+  header .header-photo-border {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    padding-top: 5%; }
+    header .header-photo-border .header-photo {
+      object-fit: cover;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      margin: auto; }
 
 /*# sourceMappingURL=../maps/style.css.map */

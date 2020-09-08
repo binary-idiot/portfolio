@@ -12,10 +12,13 @@ import rename     from 'gulp-rename'
 import sourcemaps from 'gulp-sourcemaps'
 import resize     from 'gulp-responsive'
 import size       from 'gulp-size'
+import wait       from 'gulp-wait'
 
 import del        from 'del'
 import minimist   from 'minimist'
 import fs         from 'fs'
+
+sass.compiler = require("node-sass");
 
 // Config
 
@@ -62,6 +65,7 @@ if(args.prod){
 	// Styles
 	const compileStyles = () => {
 		return gulp.src(`${paths.src.styles}*`)
+			.pipe(wait(200)) //Fix issues running sass directly after saving
 			.pipe(sourcemaps.init())
 			.pipe(sass(sassConfig).on('error', sass.logError))
 			.pipe(sourcemaps.write(paths.dest.sourcemaps))
