@@ -5,29 +5,35 @@ img {
   max-width: 100%; }
 
 small {
-  color: #249F9F; }
+  color: #EE6C4D; }
 
 body {
-  background-color: #fff;
+  background-color: #E0FBFC;
   margin: 0;
   width: 100%; }
 
 h1 {
-  color: #D2291B; }
+  color: #E0FBFC; }
 
 header {
-  background-color: #1B71D2;
   width: 100%; }
+  header .title {
+    background-color: #3D5A80;
+    padding: 5vh 8vw; }
   header .header-photo-border {
+    position: relative;
+    top: -12vh;
     width: 150px;
     height: 150px;
-    margin: auto;
-    padding-top: 5%; }
+    margin-right: 15%;
+    margin-left: auto; }
     header .header-photo-border .header-photo {
       object-fit: cover;
       border-radius: 50%;
       width: 100%;
       height: 100%;
-      margin: auto; }
+      margin: auto;
+      border: 4px solid #EE6C4D;
+      box-shadow: 0 0 0 12px #E0FBFC; }
 
 /*# sourceMappingURL=../maps/style.css.map */

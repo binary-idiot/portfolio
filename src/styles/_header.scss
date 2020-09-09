@@ -1,12 +1,23 @@
 header{
-	background-color: $color-primary;
+	
 	width: 100%;
 
+	.title{
+		
+		background-color: $color-supplement-1;
+		padding: 5vh 8vw;
+	}
+
 	.header-photo-border{
+		position: relative;
+		top: -12vh;
 		width: 150px;
 		height: 150px;		
-		margin: auto;
-		padding-top: 5%;
+		margin-right: 15%;
+		margin-left: auto;
+		
+		
+		
 
 		.header-photo{
 			object-fit: cover;
@@ -14,6 +25,8 @@ header{
 			width: 100%;
 			height: 100%;
 			margin: auto;
+			border: 4px solid $color-contrast-1;
+			box-shadow: 0 0 0 12px $color-supplement-2;
 		}
 	}
 	
