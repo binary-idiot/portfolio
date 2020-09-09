@@ -4,19 +4,17 @@
 html {
   font-size: 4vw; }
 
-@media screen and (min-width: 500px) {
-  body {
-    font-size: .5rem; } }
-
-@media screen and (min-width: 1050px) {
-  body {
-    font-size: .25rem; } }
-
 img {
   max-width: 100%; }
 
 small {
   color: #EE6C4D; }
+  @media screen and (min-width: 500px) {
+    small {
+      font-size: .5rem; } }
+  @media screen and (min-width: 1050px) {
+    small {
+      font-size: .25rem; } }
 
 body {
   background-color: #E0FBFC;
@@ -70,5 +68,12 @@ header {
       @media screen and (min-width: 500px) {
         header .header-photo-border .header-photo {
           box-shadow: 0 0 0 12px #E0FBFC; } }
+
+.content-container {
+  width: 100%; }
+  .content-container h3 {
+    text-align: center;
+    color: #293241;
+    font-size: 1.5em; }
 
 /*# sourceMappingURL=../maps/style.css.map */

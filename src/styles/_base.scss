@@ -6,7 +6,13 @@ html{
 	font-size: 4vw;
 }
 
-body{
+img{
+	max-width: 100%;
+}
+
+small{
+	color: $color-contrast-1;
+
 	@media screen and (min-width: 500px){
 		font-size: .5rem;
 	}
@@ -14,14 +20,6 @@ body{
 	@media screen and (min-width: 1050px){
 		font-size: .25rem;
 	}
-}
-
-img{
-	max-width: 100%;
-}
-
-small{
-	color: $color-contrast-1;
 }
 
 body{
