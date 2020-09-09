@@ -2,6 +2,20 @@
 	font-family: Verdana, Helvetica, sans-serif;
 }
 
+html{
+	font-size: 4vw;
+}
+
+body{
+	@media screen and (min-width: 500px){
+		font-size: .5rem;
+	}
+
+	@media screen and (min-width: 1050px){
+		font-size: .25rem;
+	}
+}
+
 img{
 	max-width: 100%;
 }
@@ -18,4 +32,5 @@ body{
 
 h1{
 	color: $color-supplement-2;
+	font-size: 2em;
 }

@@ -1,6 +1,17 @@
 * {
   font-family: Verdana, Helvetica, sans-serif; }
 
+html {
+  font-size: 4vw; }
+
+@media screen and (min-width: 500px) {
+  body {
+    font-size: .5rem; } }
+
+@media screen and (min-width: 1050px) {
+  body {
+    font-size: .25rem; } }
+
 img {
   max-width: 100%; }
 
@@ -13,20 +24,41 @@ body {
   width: 100%; }
 
 h1 {
-  color: #E0FBFC; }
+  color: #E0FBFC;
+  font-size: 2em; }
 
 header {
   width: 100%; }
   header .title {
     background-color: #3D5A80;
-    padding: 5vh 8vw; }
+    padding: 5vh 8vw 8vh;
+    text-align: center; }
+    @media screen and (min-width: 500px) {
+      header .title {
+        text-align: left;
+        font-size: .75rem;
+        padding: 5vh 8vw; } }
+    @media screen and (min-width: 1050px) {
+      header .title {
+        font-size: .5rem; } }
   header .header-photo-border {
     position: relative;
-    top: -12vh;
-    width: 150px;
-    height: 150px;
-    margin-right: 15%;
-    margin-left: auto; }
+    top: -7vh;
+    width: 75px;
+    height: 75px;
+    margin: auto; }
+    @media screen and (min-width: 375px) {
+      header .header-photo-border {
+        width: 100px;
+        height: 100px; } }
+    @media screen and (min-width: 500px) {
+      header .header-photo-border {
+        margin-right: 10%; } }
+    @media screen and (min-width: 700px) {
+      header .header-photo-border {
+        width: 150px;
+        height: 150px;
+        top: -10vh; } }
     header .header-photo-border .header-photo {
       object-fit: cover;
       border-radius: 50%;
@@ -34,6 +66,9 @@ header {
       height: 100%;
       margin: auto;
       border: 4px solid #EE6C4D;
-      box-shadow: 0 0 0 12px #E0FBFC; }
+      box-shadow: 0 0 0 10px #E0FBFC; }
+      @media screen and (min-width: 500px) {
+        header .header-photo-border .header-photo {
+          box-shadow: 0 0 0 12px #E0FBFC; } }
 
 /*# sourceMappingURL=../maps/style.css.map */
