@@ -1,6 +1,50 @@
 header{
-	
 	width: 100%;
+
+	nav{
+
+		padding: 1vw;
+		font-size: 1em;
+		display: none;
+
+		@media screen and (min-width: 500px){
+			display: block;
+		}
+
+		@media screen and (min-width: 950px){
+			font-size: .75em;
+		}
+
+		a{
+			color: $color-contrast-1;
+			text-decoration: none;
+			
+			padding: 1vw;
+			
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.open-nav{
+		padding: 3vh 2vw;
+		background-color: $color-contrast-1;
+		border: 3px solid $color-contrast-2;
+		border-left-style: none;
+
+		@media screen and (min-width: 500px){
+			display: none;
+		}
+
+		&:hover{
+			padding-left: 3.5vw;
+		}
+
+		i{
+			color: $color-contrast-2;
+		}
+	}
 
 	.title{
 		background-color: $color-supplement-1;
@@ -24,15 +68,17 @@ header{
 		width: 75px;
 		height: 75px;		
 		margin: auto;
+		margin-bottom: -45px;
 
 		@media screen and (min-width: 375px){
 			top: -50px;
 			width: 100px;
 			height: 100px;
+			margin-bottom: -75px;
 		}
 
 		@media screen and (min-width: 500px){
-		
+			margin-bottom: -95px;
 			margin-right: 10%;
 		}
 
@@ -40,13 +86,8 @@ header{
 			width: 150px;
 			height: 150px;
 			top: -75px;
+			margin-bottom: -145px;
 		}
-		
-		//margin-right: 15%;
-		//top: -12vh;
-		//width: 150px;
-		//height: 150px;
-		
 
 		.header-photo{
 			object-fit: cover;
