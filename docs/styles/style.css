@@ -41,12 +41,13 @@ header {
         font-size: .5rem; } }
   header .header-photo-border {
     position: relative;
-    top: -7vh;
+    top: -38px;
     width: 75px;
     height: 75px;
     margin: auto; }
     @media screen and (min-width: 375px) {
       header .header-photo-border {
+        top: -50px;
         width: 100px;
         height: 100px; } }
     @media screen and (min-width: 500px) {
@@ -56,7 +57,7 @@ header {
       header .header-photo-border {
         width: 150px;
         height: 150px;
-        top: -10vh; } }
+        top: -75px; } }
     header .header-photo-border .header-photo {
       object-fit: cover;
       border-radius: 50%;
