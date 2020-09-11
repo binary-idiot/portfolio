@@ -155,14 +155,30 @@ header {
     text-align: center; }
 
 footer {
-  margin: 3%; }
-  footer small {
+  margin: 3%;
+  display: flex;
+  flex-direction: column; }
+  footer .social-icons {
+    align-self: center;
+    padding: 5% 5% 10%; }
+    footer .social-icons a {
+      color: #E0FBFC;
+      background-color: #3D5A80;
+      font-size: 1em;
+      border-radius: 100%;
+      border: min(0.5vw, 3px) solid #EE6C4D;
+      padding: 1vw;
+      margin: 2vw; }
+      footer .social-icons a:hover {
+        color: #3D5A80;
+        background-color: #E0FBFC; }
+  footer .copywrite {
     color: #EE6C4D; }
     @media screen and (min-width: 500px) {
-      footer small {
+      footer .copywrite {
         font-size: .5rem; } }
     @media screen and (min-width: 1050px) {
-      footer small {
+      footer .copywrite {
         font-size: .25rem; } }
 
 .content-container p {

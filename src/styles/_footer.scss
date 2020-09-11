@@ -1,7 +1,29 @@
 footer{
     margin: 3%;
+    display: flex;
+    flex-direction: column;
 
-    small{
+    .social-icons{
+        align-self: center;
+        padding: 5% 5% 10%;
+
+        a{
+            color: $color-supplement-2;
+            background-color: $color-supplement-1;
+            font-size: 1em;
+            border-radius: 100%;
+            border: css-min(.5vw, 3px) solid $color-contrast-1;
+            padding: 1vw;
+            margin: 2vw;
+
+            &:hover{
+                color: $color-supplement-1;
+                background-color: $color-supplement-2;
+            }
+        }
+    }
+
+    .copywrite{
         color: $color-contrast-1;
     
         @media screen and (min-width: 500px){
