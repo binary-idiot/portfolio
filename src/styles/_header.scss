@@ -2,13 +2,25 @@ header{
 	width: 100%;
 
 	nav{
-
-		padding: 1vw;
-		font-size: 1em;
+		font-size: 2em;
 		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 85%;
+		height: 100%;
+		background-color: $color-supplement-1;
 
 		@media screen and (min-width: 500px){
+			padding: 1vw;
+			font-size: 1em;
 			display: block;
+			position: static;
+			background-color: transparent;
+			z-index: auto;
+			width: auto;
+			height: auto;
 		}
 
 		@media screen and (min-width: 950px){
@@ -19,15 +31,24 @@ header{
 			color: $color-contrast-1;
 			text-decoration: none;
 			
-			padding: 1vw;
+			margin: 10vw;
+
+			display: block;
+			text-align: center;
 			
 			&:hover{
 				text-decoration: underline;
+			}
+
+			@media screen and (min-width:500px){
+				display: inline;
+				margin: 1vw;
 			}
 		}
 	}
 
 	.open-nav{
+		display: inline;
 		padding: 3vh 2vw;
 		background-color: $color-contrast-1;
 		border: 3px solid $color-contrast-2;
@@ -43,6 +64,25 @@ header{
 
 		i{
 			color: $color-contrast-2;
+		}
+	}
+
+	.close-nav{
+		display: none;
+		z-index: 1;
+		position: fixed;
+		top: 0;
+		left: 85%;
+		width: 15%;
+		height: 100%;
+		color: $color-contrast-1;
+		background-color: $color-contrast-transparent;
+		text-align: center;
+		font-size: 2em;
+
+		i{
+			display: inline-block;
+			margin: 15vh 0 auto;
 		}
 	}
 

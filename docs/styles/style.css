@@ -28,22 +28,42 @@ h1 {
 header {
   width: 100%; }
   header nav {
-    padding: 1vw;
-    font-size: 1em;
-    display: none; }
+    font-size: 2em;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 85%;
+    height: 100%;
+    background-color: #3D5A80; }
     @media screen and (min-width: 500px) {
       header nav {
-        display: block; } }
+        padding: 1vw;
+        font-size: 1em;
+        display: block;
+        position: static;
+        background-color: transparent;
+        z-index: auto;
+        width: auto;
+        height: auto; } }
     @media screen and (min-width: 950px) {
       header nav {
         font-size: .75em; } }
     header nav a {
       color: #EE6C4D;
       text-decoration: none;
-      padding: 1vw; }
+      margin: 10vw;
+      display: block;
+      text-align: center; }
       header nav a:hover {
         text-decoration: underline; }
+      @media screen and (min-width: 500px) {
+        header nav a {
+          display: inline;
+          margin: 1vw; } }
   header .open-nav {
+    display: inline;
     padding: 3vh 2vw;
     background-color: #EE6C4D;
     border: 3px solid #293241;
@@ -55,6 +75,21 @@ header {
       padding-left: 3.5vw; }
     header .open-nav i {
       color: #293241; }
+  header .close-nav {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 85%;
+    width: 15%;
+    height: 100%;
+    color: #EE6C4D;
+    background-color: rgba(41, 50, 66, 0.5);
+    text-align: center;
+    font-size: 2em; }
+    header .close-nav i {
+      display: inline-block;
+      margin: 15vh 0 auto; }
   header .title {
     background-color: #3D5A80;
     padding: 5vh 8vw 8vh;
