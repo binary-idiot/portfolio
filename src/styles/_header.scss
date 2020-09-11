@@ -96,6 +96,7 @@ header{
 		padding: 5vh 8vw 8vh;
 		text-align: center;
 		
+		
 		@media screen and (min-width: 500px){
 			text-align: left;
 			font-size: .75rem;
@@ -104,6 +105,10 @@ header{
 
 		@media screen and (min-width: 1050px){
 			font-size: .5rem;
+		}
+
+		h1{
+			color: $color-supplement-2;
 		}
 	}
 

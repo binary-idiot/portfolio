@@ -22,8 +22,12 @@ body {
   width: 100%; }
 
 h1 {
-  color: #E0FBFC;
+  color: #EE6C4D;
   font-size: 2em; }
+
+h3 {
+  color: #293241;
+  font-size: 1.5em; }
 
 header {
   width: 100%; }
@@ -105,6 +109,8 @@ header {
     @media screen and (min-width: 1050px) {
       header .title {
         font-size: .5rem; } }
+    header .title h1 {
+      color: #E0FBFC; }
   header .header-photo-border {
     position: relative;
     top: -38px;
@@ -141,10 +147,13 @@ header {
           box-shadow: 0 0 0 12px #E0FBFC; } }
 
 .content-container {
-  width: 100%; }
+  width: 80%;
+  margin: 0 auto; }
   .content-container h3 {
-    text-align: center;
-    color: #293241;
-    font-size: 1.5em; }
+    text-align: center; }
+
+.content-container p {
+  font-weight: bold;
+  line-height: 2; }
 
 /*# sourceMappingURL=../maps/style.css.map */
