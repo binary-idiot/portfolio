@@ -26,11 +26,11 @@ footer{
     .copywrite{
         color: $color-contrast-1;
     
-        @media screen and (min-width: 500px){
+        @media screen and (min-width: $media-small){
             font-size: .5rem;
         }
     
-        @media screen and (min-width: 1050px){
+        @media screen and (min-width: $media-xlarge){
             font-size: .25rem;
         }
     }
