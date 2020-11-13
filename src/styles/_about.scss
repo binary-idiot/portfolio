@@ -1,27 +1,19 @@
-.home{
-
-    display:flex;
-    flex-direction: column;
-
-    @media screen and (min-width: $media-small){
-        flex-direction: row;
-    }
+.about{
 
     h3{
         @media screen and (min-width: $media-small){
             font-size: 1em;
             padding:0 4vw;
-            margin: auto 0 auto;
+
         }
     }
 
-     p{
-        font-weight: bold;
+    p{
+        text-align: left;
+        text-indent: 2em;
         line-height: 2;
-        text-align: center;
 
         @media screen and (min-width: $media-small){
-            text-align: left;
             font-size: .75em;
         }
 
