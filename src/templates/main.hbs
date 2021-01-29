@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<link rel="stylesheet" href="/styles/style.css">
+
+	<title>Jonah Middleton | {{ name }}</title>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://kit.fontawesome.com/95a5de8b5c.js" crossorigin="anonymous"></script>
+	<script>
+		function openNav(){
+			document.getElementsByTagName("NAV")[0].style.display = "block";
+			document.getElementsByClassName("open-nav")[0].style.display = "none";
+			document.getElementsByClassName("close-nav")[0].style.display = "block";
+		}
+
+		function closeNav(){
+			document.getElementsByTagName("NAV")[0].style.display = "none";
+			document.getElementsByClassName("open-nav")[0].style.display = "inline";
+			document.getElementsByClassName("close-nav")[0].style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	{{> header}}
+	<main>
+		{{{ content }}}
+	</main>
+	{{> footer}}
+</body>
+</html>

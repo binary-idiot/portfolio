@@ -13,10 +13,14 @@ import sourcemaps from 'gulp-sourcemaps'
 import resize     from 'gulp-responsive'
 import size       from 'gulp-size'
 import wait       from 'gulp-wait'
+import tap		  from 'gulp-tap'
 
+import hb		  from 'handlebars'
+import hbWax	  from 'handlebars-wax'
 import del        from 'del'
 import minimist   from 'minimist'
 import fs         from 'fs'
+import {Readable} from 'stream'
 
 sass.compiler = require("node-sass");
 
@@ -46,7 +50,18 @@ if(args.prod){
 // Compile source
 	// Pages 
 	const compilePages = () => {
+
+		const wax = hbWax(hb).partials(`${paths.src.partials}*.hbs`);
+		const template = wax.compile(fs.readFileSync(`${paths.src.templates}main.hbs`).toString());
+
 		return gulp.src(`${paths.src.pages}*`)
+			.pipe(tap(file => {
+				const base = (file.basename != 'index.html')? file.basename.slice(0, file.basename.indexOf('.')) : 'home';
+				const pageName = base.charAt(0).toUpperCase() + base.slice(1);
+				const pageContent = file.contents.toString();
+
+				file.contents = Readable.from(template({name: pageName, content: pageContent}));
+			}))
 			.pipe(rename(path => {
 				path.dirname = (path.basename == 'index')? ''  : path.basename;
 				path.basename = 'index';
