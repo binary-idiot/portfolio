@@ -44,7 +44,7 @@
     "gulp-wait": "0.0.2",
     "handlebars": "^4.7.6",
     "handlebars-wax": "^6.1.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "node-sass": "^4.14.1"
   },
   "dependencies": {}
